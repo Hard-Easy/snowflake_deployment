@@ -1,0 +1,8 @@
+service:
+  name: Github
+  identifier: Github
+  orgIdentifier: default
+  projectIdentifier: default_project
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
