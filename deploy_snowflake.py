@@ -39,7 +39,7 @@ connection_parameters = {
 # Create a session
 session = Session.builder.configs(connection_parameters).create()
 
-def add_numbers(session, a: int, b: int) -> int:
+def add_numbers(session:Session, a: int, b: int) -> int:
     return a + b
 
 # Register the stored procedure
