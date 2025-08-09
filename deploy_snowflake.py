@@ -3,17 +3,6 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
 
 
-# # Snowflake connection config
-# connection_parameters = {
-#     "account": "<your_account>",
-#     "user": "<your_user>",
-#     "password": "<your_password>",
-#     "role": "<your_role>",
-#     "warehouse": "<your_warehouse>",
-#     "database": "<your_database>",
-#     "schema": "<your_schema>"
-# }
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--account", required=True)
 parser.add_argument("--user", required=True)
