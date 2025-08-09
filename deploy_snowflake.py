@@ -1,6 +1,7 @@
 import argparse
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
+from workflow_creation import register_stored_procedure
 
 
 parser = argparse.ArgumentParser()
@@ -38,7 +39,7 @@ def add_numbers(session:Session, a: int, b: int) -> int:
     return a + b
 
 # Register the stored procedure
-sproc = session.sproc.register(
+sproc = register_stored_procedure(
     func=add_numbers,
     return_type=IntegerType(),
     input_types=[IntegerType(), IntegerType()],
