@@ -38,6 +38,9 @@ connection_parameters = {
 
 # Create a session
 session = Session.builder.configs(connection_parameters).create()
+session.add_packages("snowflake-snowpark-python")
+session.custom_package_usage_config["enabled"] = True
+
 
 session.sql("USE DATABASE SANDBOX").collect()
 session.sql("USE SCHEMA DATAMART_1").collect()
