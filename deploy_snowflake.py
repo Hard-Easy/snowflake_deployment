@@ -23,13 +23,14 @@ parser.add_argument("--warehouse", required=True)
 parser.add_argument("--database", required=True)
 parser.add_argument("--schema", required=True)
 parser.add_argument("--password", required=True)
+parser.add_argument("--role", required=True)
 
 args = parser.parse_args()
 
 # Build connection
 connection_parameters = {
     "account": args.account,
-    "authenticator": "oauth",
+    "role":  args.role,
     "password": args.password,
     "user": args.user,
     "warehouse": args.warehouse,
