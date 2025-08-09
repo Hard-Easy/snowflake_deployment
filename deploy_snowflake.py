@@ -1,4 +1,4 @@
-
+import argparse
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
 
