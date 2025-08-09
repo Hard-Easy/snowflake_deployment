@@ -40,6 +40,7 @@ def add_numbers(session:Session, a: int, b: int) -> int:
 
 # Register the stored procedure
 sproc = register_stored_procedure(
+    session=session,
     func=add_numbers,
     return_type=IntegerType(),
     input_types=[IntegerType(), IntegerType()],
