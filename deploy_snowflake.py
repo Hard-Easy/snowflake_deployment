@@ -2,8 +2,6 @@ import argparse
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
 
-def add_numbers(session, a: int, b: int) -> int:
-    return a + b
 
 # # Snowflake connection config
 # connection_parameters = {
@@ -40,6 +38,9 @@ connection_parameters = {
 
 # Create a session
 session = Session.builder.configs(connection_parameters).create()
+
+def add_numbers(session, a: int, b: int) -> int:
+    return a + b
 
 # Register the stored procedure
 sproc = session.sproc.register(
