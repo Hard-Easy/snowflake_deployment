@@ -2,7 +2,8 @@
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
 
-from add_utils import add_numbers
+def add_numbers(session, a: int, b: int) -> int:
+    return a + b
 
 # # Snowflake connection config
 # connection_parameters = {
