@@ -39,6 +39,9 @@ connection_parameters = {
 # Create a session
 session = Session.builder.configs(connection_parameters).create()
 
+session.sql("USE DATABASE SANDBOX").collect()
+session.sql("USE SCHEMA DATAMART_1").collect()
+
 def add_numbers(session:Session, a: int, b: int) -> int:
     return a + b
 
