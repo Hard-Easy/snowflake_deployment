@@ -34,5 +34,6 @@ def register_stored_procedure(
         name=name,
         replace=replace,
         is_permanent=is_permanent,
-        stage_location=stage_location
+        stage_location=stage_location,
+        execute_as="CALLER"
     )
