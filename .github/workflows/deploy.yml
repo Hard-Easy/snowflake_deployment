@@ -28,4 +28,5 @@ jobs:
           SNOWFLAKE_DATABASE: ${{secrets.SNOWFLAKE_DATABASE}}
           SNOWFLAKE_SCHEMA: ${{secrets.SNOWFLAKE_SCHEMA}}
         run: |
-          echo "Account: $SNOWFLAKE_ACCOUNT"
+          python deploy_snowflake.py --account $SNOWFLAKE_ACCOUNT --user $SNOWFLAKE_USERNAME --warehouse $SNOWFLAKE_WAREHOUSE --database $SNOWFLAKE_DATABASE --schema $SNOWFLAKE_SCHEMA --password $SNOWFLAKE_PASSWORD --role $SNOWFLAKE_ROLE
+
