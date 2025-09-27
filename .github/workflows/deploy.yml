@@ -27,4 +27,4 @@ jobs:
           SNOWFLAKE_WAREHOUSE: ${{secrets.SNOWFLAKE_WAREHOUSE}}
           SNOWFLAKE_DATABASE: ${{secrets.SNOWFLAKE_DATABASE}}
           SNOWFLAKE_SCHEMA: ${{secrets.SNOWFLAKE_SCHEMA}}
-        run: python deploy.py
+        run: python deploy_snowflake.py
