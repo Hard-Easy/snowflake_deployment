@@ -2,6 +2,7 @@ import argparse
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
 from workflow_creation import register_stored_procedure
+from src.common_methods import add_numbers
 
 
 parser = argparse.ArgumentParser()
@@ -35,8 +36,8 @@ session.custom_package_usage_config["enabled"] = True
 session.sql("USE DATABASE SANDBOX").collect()
 session.sql("USE SCHEMA DATAMART_1").collect()
 
-def add_numbers(session:Session, a: int, b: int) -> int:
-    return a + b
+# def add_numbers(session:Session, a: int, b: int) -> int:
+#     return a + b
 
 # Register the stored procedure
 sproc = register_stored_procedure(
