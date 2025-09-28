@@ -33,8 +33,8 @@ session = Session.builder.configs(connection_parameters).create()
 session.add_packages("snowflake-snowpark-python")
 session.custom_package_usage_config["enabled"] = True
 
-session.file.put("my_code.zip", stage_path, overwrite=True)
 stage_path = '@"SANDBOX"."DATAMART_1"."FILE_SHARING"'
+session.file.put("my_code.zip", stage_path, overwrite=True)
 
 
 session.sql("USE DATABASE SANDBOX").collect()
