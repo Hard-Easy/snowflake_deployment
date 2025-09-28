@@ -53,7 +53,7 @@ sproc = register_stored_procedure(
     replace=True,
     is_permanent=True,
     stage_location='@"SANDBOX"."DATAMART_1"."FILE_SHARING"', # Ensure this stage exists
-    imports=[f"{stage_path}/my_code.zip"]
+    imports_path=[f"{stage_path}/my_code.zip"]
 )
 
 print(f"Stored procedure '{sproc.name}' registered successfully.")
