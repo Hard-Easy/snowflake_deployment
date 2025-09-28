@@ -1,3 +1,4 @@
+import os
 import argparse
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import IntegerType
@@ -32,6 +33,9 @@ session = Session.builder.configs(connection_parameters).create()
 session.add_packages("snowflake-snowpark-python")
 session.custom_package_usage_config["enabled"] = True
 
+session.file.put("my_code.zip", stage_path, overwrite=True)
+stage_path = '@"SANDBOX"."DATAMART_1"."FILE_SHARING"'
+
 
 session.sql("USE DATABASE SANDBOX").collect()
 session.sql("USE SCHEMA DATAMART_1").collect()
@@ -48,7 +52,8 @@ sproc = register_stored_procedure(
     name="add_numbers",
     replace=True,
     is_permanent=True,
-    stage_location='@"SANDBOX"."DATAMART_1"."FILE_SHARING"' # Ensure this stage exists
+    stage_location='@"SANDBOX"."DATAMART_1"."FILE_SHARING"', # Ensure this stage exists
+    imports=[f"{stage_path}/my_code.zip"]
 )
 
 print(f"Stored procedure '{sproc.name}' registered successfully.")
