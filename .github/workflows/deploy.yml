@@ -18,6 +18,10 @@ jobs:
       - name: Install dependencies 
         run: pip install snowflake-connector-python snowflake-snowpark-python
 
+      - name: Zip Python code for Snowflake
+        run: |
+          zip -r my_code.zip src/
+
       - name: Run deploy script
         env:
           PYTHONPATH: ${{ github.workspace }}
