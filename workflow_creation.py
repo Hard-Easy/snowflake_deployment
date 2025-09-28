@@ -8,8 +8,10 @@ def register_stored_procedure(
     input_types: list[DataType],
     name: str,
     stage_location: str,
+    imports_path: str,
     replace: bool = True,
     is_permanent: bool = True,
+    
 ):
     """
     Registers a stored procedure in Snowflake from a Python function.
@@ -35,5 +37,6 @@ def register_stored_procedure(
         replace=replace,
         is_permanent=is_permanent,
         stage_location=stage_location,
+        imports=imports_path,
         execute_as="CALLER"
     )
